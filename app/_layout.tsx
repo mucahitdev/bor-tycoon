@@ -1,4 +1,3 @@
-import FontAwesome from "@expo/vector-icons/FontAwesome";
 import { useFonts } from "expo-font";
 import { Slot } from "expo-router";
 import * as SplashScreen from "expo-splash-screen";
@@ -8,6 +7,7 @@ import { customizeText } from "react-native-reset-css";
 import { Provider } from "react-redux";
 import { PersistGate } from "redux-persist/integration/react";
 
+import Fonts from "@/constants/fonts";
 import { store, persistor } from "@/store";
 
 export {
@@ -24,13 +24,7 @@ export const unstable_settings = {
 SplashScreen.preventAutoHideAsync();
 
 export default function RootLayout() {
-  const [loaded, error] = useFonts({
-    SpaceMono: require("../assets/fonts/SpaceMono-Regular.ttf"),
-    SpaceMonoItalic: require("../assets/fonts/SpaceMono-Italic.ttf"),
-    SpaceMonoBold: require("../assets/fonts/SpaceMono-Bold.ttf"),
-    SpaceMonoBoldItalic: require("../assets/fonts/SpaceMono-BoldItalic.ttf"),
-    ...FontAwesome.font,
-  });
+  const [loaded, error] = useFonts(Fonts);
 
   // Expo Router uses Error Boundaries to catch errors in the navigation tree.
   useEffect(() => {
@@ -49,7 +43,7 @@ export default function RootLayout() {
 
   customizeText({
     style: {
-      fontFamily: "SpaceMono",
+      fontFamily: "Quicksand_500Medium",
     },
   });
 

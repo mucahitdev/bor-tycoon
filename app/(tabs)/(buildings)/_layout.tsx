@@ -27,6 +27,10 @@ const TabLayout = () => {
         tabBarIndicatorStyle: {
           backgroundColor: Colors.secondary,
         },
+        tabBarLabelStyle: {
+          color: Colors.primary,
+          textTransform: "none",
+        },
         tabBarStyle: {
           backgroundColor: "white",
         },
@@ -35,13 +39,13 @@ const TabLayout = () => {
       <MaterialTopTabs.Screen
         name="mines"
         options={{
-          title: "Madenler",
+          title: "MADENLER",
         }}
       />
       <MaterialTopTabs.Screen
         name="factories"
         options={{
-          title: "Fabrikalar",
+          title: "FABRİKALAR",
         }}
       />
     </MaterialTopTabs>
