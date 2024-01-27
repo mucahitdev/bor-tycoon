@@ -1,10 +1,10 @@
 import FontAwesome from "@expo/vector-icons/FontAwesome";
 import { useFonts } from "expo-font";
-import { Slot, Stack } from "expo-router";
+import { Slot } from "expo-router";
 import * as SplashScreen from "expo-splash-screen";
 import { useEffect } from "react";
 import { Text } from "react-native";
-
+import { customizeText } from "react-native-reset-css";
 import { Provider } from "react-redux";
 import { PersistGate } from "redux-persist/integration/react";
 
@@ -47,12 +47,16 @@ export default function RootLayout() {
     return null;
   }
 
+  customizeText({
+    style: {
+      fontFamily: "SpaceMono",
+    },
+  });
+
   return <RootLayoutNav />;
 }
 
 function AuthProvider({ children }: { children: React.ReactNode }) {
-  const isLoggedIn = true;
-
   return <>{children}</>;
 }
 

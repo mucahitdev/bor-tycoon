@@ -47,7 +47,6 @@ const styles = StyleSheet.create({
     fontSize: 16,
     fontFamily: "SpaceMono",
     textAlign: "center",
-    textAlignVertical: "center",
   },
   input: {
     backgroundColor: "#F9F7F7",
