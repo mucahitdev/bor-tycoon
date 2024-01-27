@@ -37,9 +37,19 @@ export default function TabLayout() {
         }}
       />
       <Tabs.Screen
+        name="(buildings)"
+        options={{
+          title: "Binalar",
+          headerShown: true,
+          tabBarIcon: ({ color }) => (
+            <TabBarIcon name="industry" color={color} />
+          ),
+        }}
+      />
+      <Tabs.Screen
         name="two"
         options={{
-          title: "Tab Two",
+          title: "Profile",
           tabBarIcon: ({ color }) => <TabBarIcon name="user" color={color} />,
         }}
       />

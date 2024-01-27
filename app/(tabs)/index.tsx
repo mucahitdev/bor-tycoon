@@ -1,6 +1,8 @@
 import { Text, View, StyleSheet } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 
+import ProgressBar from "@/components/shared/progressBar";
+import Colors from "@/constants/Colors";
 import { useAppSelector } from "@/store/hooks";
 
 export default function HomeScreen() {
@@ -11,7 +13,14 @@ export default function HomeScreen() {
         <Text style={styles.companyName} numberOfLines={1} ellipsizeMode="tail">
           {companyName} Ltd Şti
         </Text>
-        <Text style={styles.companyName}> </Text>
+      </View>
+      <View style={styles.progressContainer}>
+        <Text>Maden Depo</Text>
+        <ProgressBar value={45} />
+      </View>
+      <View style={styles.progressContainer}>
+        <Text>Ürün Depo</Text>
+        <ProgressBar value={23} />
       </View>
     </SafeAreaView>
   );
@@ -20,8 +29,8 @@ export default function HomeScreen() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    alignItems: "center",
     paddingHorizontal: 16,
+    gap: 16,
   },
   companyHeader: {
     padding: 16,
@@ -40,9 +49,10 @@ const styles = StyleSheet.create({
     fontSize: 20,
     fontWeight: "bold",
   },
-  separator: {
-    marginVertical: 30,
-    height: 1,
-    width: "80%",
+  progressContainer: {
+    backgroundColor: Colors.orange,
+    padding: 8,
+    gap: 8,
+    borderRadius: 10,
   },
 });

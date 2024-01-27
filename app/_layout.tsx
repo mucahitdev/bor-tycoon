@@ -17,7 +17,7 @@ export {
 
 export const unstable_settings = {
   // Ensure that reloading on `/modal` keeps a back button present.
-  initialRouteName: "(tabs)",
+  initialRouteName: "(tabs)/index",
 };
 
 // Prevent the splash screen from auto-hiding before asset loading is complete.
@@ -56,17 +56,11 @@ export default function RootLayout() {
   return <RootLayoutNav />;
 }
 
-function AuthProvider({ children }: { children: React.ReactNode }) {
-  return <>{children}</>;
-}
-
 function RootLayoutNav() {
   return (
     <Provider store={store}>
       <PersistGate loading={<Text>Loading...</Text>} persistor={persistor}>
-        <AuthProvider>
-          <Slot />
-        </AuthProvider>
+        <Slot />
       </PersistGate>
     </Provider>
   );
