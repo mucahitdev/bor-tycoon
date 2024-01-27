@@ -1,4 +1,25 @@
-export const mines = [
+interface IRegion {
+  title: string;
+  latitude: number;
+  longitude: number;
+}
+
+interface IProducts {
+  id: number;
+  name: string;
+  storageSpace: number;
+  ratio: number;
+}
+
+export interface IMines {
+  id: number;
+  name: string;
+  region: IRegion;
+  description: string;
+  products: IProducts[];
+}
+
+export const mines: IMines[] = [
   {
     id: 1,
     name: "Kolemanit",

@@ -1,10 +1,10 @@
 import React from "react";
 import { Text, View, StyleSheet } from "react-native";
 
-export default function MinesScreen() {
+export default function MineDetail() {
   return (
     <View style={styles.container}>
-      <Text>Madenler</Text>
+      <Text>MineDetail</Text>
     </View>
   );
 }
