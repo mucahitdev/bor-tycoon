@@ -7,9 +7,8 @@ import { customizeText } from "react-native-reset-css";
 import { Provider } from "react-redux";
 import { PersistGate } from "redux-persist/integration/react";
 
-import Fonts from "../src/constants/Fonts";
-
 import { AppEngineProvider } from "@/components/providers/appEngine";
+import _Fonts from "@/constants/Fonts";
 import { store, persistor } from "@/store";
 
 export {
@@ -26,7 +25,7 @@ export const unstable_settings = {
 SplashScreen.preventAutoHideAsync();
 
 export default function RootLayout() {
-  const [loaded, error] = useFonts(Fonts);
+  const [loaded, error] = useFonts(_Fonts);
 
   // Expo Router uses Error Boundaries to catch errors in the navigation tree.
   useEffect(() => {
