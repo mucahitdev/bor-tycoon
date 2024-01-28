@@ -37,7 +37,7 @@ export default function TabLayout() {
         }}
       />
       <Tabs.Screen
-        name="(buildings)"
+        name="buildings"
         options={{
           title: "Binalar",
           headerShown: true,

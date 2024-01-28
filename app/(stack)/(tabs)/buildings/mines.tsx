@@ -1,17 +1,30 @@
-import { Link, router } from "expo-router";
+import { Link } from "expo-router";
 import React from "react";
 import { Text, View, StyleSheet, TouchableOpacity } from "react-native";
 
 import { mines, type IMines } from "@/data/mines";
 
-const Mine = ({ name, description, region: { title } }: IMines) => {
+const Mine = (props: IMines) => {
+  const {
+    name,
+    description,
+    id,
+    region: { title },
+  } = props;
   return (
-    <TouchableOpacity onPress={() => {}} style={styles.mineContainer}>
-      <Text>{name} Madeni</Text>
-      <Text>{title}</Text>
-      <Text>{description}</Text>
-      <Link href="/(stack)/mineDetail">Details</Link>
-    </TouchableOpacity>
+    <Link
+      href={{
+        pathname: "/(stack)/mine-detail/[id]",
+        params: { id },
+      }}
+      asChild
+    >
+      <TouchableOpacity style={styles.mineContainer}>
+        <Text>{name} Madeni</Text>
+        <Text>{title}</Text>
+        <Text>{description}</Text>
+      </TouchableOpacity>
+    </Link>
   );
 };
 

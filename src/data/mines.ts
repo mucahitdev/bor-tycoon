@@ -12,7 +12,7 @@ interface IProducts {
 }
 
 export interface IMines {
-  id: number;
+  id: string;
   name: string;
   region: IRegion;
   description: string;
@@ -21,7 +21,7 @@ export interface IMines {
 
 export const mines: IMines[] = [
   {
-    id: 1,
+    id: "1",
     name: "Kolemanit",
     region: {
       title: "Kütahya - Emet",
@@ -57,7 +57,7 @@ export const mines: IMines[] = [
     ],
   },
   {
-    id: 2,
+    id: "2",
     name: "Tinkal",
     region: {
       title: "Eskişehir - Kırka",
@@ -87,7 +87,7 @@ export const mines: IMines[] = [
     ],
   },
   {
-    id: 3,
+    id: "3",
     name: "Üleksit",
     region: {
       title: "Balıkesir - Bigadiç",

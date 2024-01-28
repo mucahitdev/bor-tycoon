@@ -8,10 +8,11 @@ export default function StackLayout() {
       }}
     >
       <Stack.Screen
-        name="mineDetail"
+        name="mine-detail/[id]"
         options={{
           headerBackTitle: "Geri",
           headerShown: true,
+          headerTitleAlign: "center",
         }}
       />
       <Stack.Screen
