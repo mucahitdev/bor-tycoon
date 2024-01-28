@@ -7,8 +7,9 @@ import { customizeText } from "react-native-reset-css";
 import { Provider } from "react-redux";
 import { PersistGate } from "redux-persist/integration/react";
 
+import Fonts from "../src/constants/Fonts";
+
 import { AppEngineProvider } from "@/components/providers/appEngine";
-import Fonts from "@/constants/Fonts";
 import { store, persistor } from "@/store";
 
 export {
