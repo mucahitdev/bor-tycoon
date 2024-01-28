@@ -7,6 +7,7 @@ import { customizeText } from "react-native-reset-css";
 import { Provider } from "react-redux";
 import { PersistGate } from "redux-persist/integration/react";
 
+import { AppEngineProvider } from "@/components/providers/appEngine";
 import Fonts from "@/constants/Fonts";
 import { store, persistor } from "@/store";
 
@@ -54,7 +55,9 @@ function RootLayoutNav() {
   return (
     <Provider store={store}>
       <PersistGate loading={<Text>Loading...</Text>} persistor={persistor}>
-        <Slot />
+        <AppEngineProvider>
+          <Slot />
+        </AppEngineProvider>
       </PersistGate>
     </Provider>
   );

@@ -2,18 +2,25 @@ import { Stack, useLocalSearchParams } from "expo-router";
 import React from "react";
 import { Text, View, StyleSheet } from "react-native";
 
-import { IMines, mines } from "@/data/mines";
+import { mines } from "@/data/mines";
+import { useAppSelector } from "@/store/hooks";
 
 const getMineData = (id: string) => mines.find((mine) => mine.id === id);
 
 export default function MineDetail() {
   const { id } = useLocalSearchParams<{ id: string }>();
+  const { mineData } = useAppSelector((state) => state.user);
+
   const data = getMineData(id);
   if (!data) {
     return null;
   }
-  const { name, description, products } = data;
+  const { name } = data;
   const title = name + " Madeni";
+
+  const idNumber = parseInt(id, 10);
+  const { level, rawCount, capacity } = mineData[idNumber];
+
   return (
     <View style={styles.container}>
       <Stack.Screen
@@ -21,11 +28,12 @@ export default function MineDetail() {
           headerTitle: title,
         }}
       />
-      <Text>{description}</Text>
-      <Text>Çıkan ürünler</Text>
-      {products.map((product) => {
-        return <Text key={product.id}>{product.name}</Text>;
-      })}
+      <Text>{title}</Text>
+      <Text>Seviye: {level}</Text>
+      <Text>
+        Maden deposundaki {name} madeni: {rawCount}
+      </Text>
+      <Text>Maden deposunun kapasitesi: {capacity}</Text>
     </View>
   );
 }
