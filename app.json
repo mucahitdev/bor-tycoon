@@ -31,6 +31,21 @@
     "experiments": {
       "typedRoutes": true,
       "tsconfigPaths": true
+    },
+    "extra": {
+      "router": {
+        "origin": false
+      },
+      "eas": {
+        "projectId": "a2e604f5-74af-40a9-b2ad-64b776840537"
+      }
+    },
+    "owner": "koksoft",
+    "runtimeVersion": {
+      "policy": "appVersion"
+    },
+    "updates": {
+      "url": "https://u.expo.dev/a2e604f5-74af-40a9-b2ad-64b776840537"
     }
   }
 }
