@@ -1,6 +1,6 @@
 import { createSlice, type PayloadAction } from "@reduxjs/toolkit";
 
-export interface UsersState {
+export interface gameState {
   metarialCount: {
     [key: number]: number;
   };
@@ -18,7 +18,7 @@ export interface UsersState {
   };
 }
 
-const initialState: UsersState = {
+const initialState: gameState = {
   metarialCount: {},
   rawStorageCapacity: 100,
   products: {},
@@ -42,8 +42,8 @@ const initialState: UsersState = {
   },
 };
 
-export const userSlice = createSlice({
-  name: "user",
+export const gameSlice = createSlice({
+  name: "game",
   initialState,
   reducers: {
     addMaterial: (
@@ -65,7 +65,7 @@ export const userSlice = createSlice({
     },
 
     // MINE
-    // Seviyeyi 1 arttırır
+    // İlgili madenin seciyesini 1 arttırır
     updateMineDataLevelOne: (
       state,
       // eslint-disable-next-line prettier/prettier
@@ -91,6 +91,6 @@ export const {
   updateProduct,
   updateMineDataLevelOne,
   updateMineDataRawCount,
-} = userSlice.actions;
+} = gameSlice.actions;
 
-export default userSlice.reducer;
+export default gameSlice.reducer;

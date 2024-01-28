@@ -14,6 +14,7 @@ interface IProducts {
 export interface IMines {
   id: string;
   name: string;
+  requiredLevel: number;
   region: IRegion;
   description: string;
   products: IProducts[];
@@ -23,6 +24,7 @@ export const mines: IMines[] = [
   {
     id: "1",
     name: "Kolemanit",
+    requiredLevel: 1,
     region: {
       title: "Kütahya - Emet",
       latitude: 39.34443047795569,
@@ -59,6 +61,7 @@ export const mines: IMines[] = [
   {
     id: "2",
     name: "Tinkal",
+    requiredLevel: 3,
     region: {
       title: "Eskişehir - Kırka",
       latitude: 39.283896219870094,
@@ -89,6 +92,7 @@ export const mines: IMines[] = [
   {
     id: "3",
     name: "Üleksit",
+    requiredLevel: 5,
     region: {
       title: "Balıkesir - Bigadiç",
       latitude: 39.39393408334004,

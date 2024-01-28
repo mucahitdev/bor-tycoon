@@ -1,8 +1,8 @@
 import React, { useCallback, useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 
+import { updateMineDataRawCount } from "@/store/gameReducer";
 import { useAppSelector } from "@/store/hooks";
-import { updateMineDataRawCount } from "@/store/userReducer";
 
 export const AppEngineContext = React.createContext({
   timer: 0,
@@ -17,7 +17,7 @@ export const AppEngineProvider = ({
 }) => {
   const [timer, setTimer] = useState(0);
   const dispatch = useDispatch();
-  const { mineData } = useAppSelector((state) => state.user);
+  const { mineData } = useAppSelector((state) => state.game);
 
   const runEngine = useCallback(() => {
     for (const mineId in mineData) {

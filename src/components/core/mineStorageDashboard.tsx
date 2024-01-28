@@ -7,7 +7,7 @@ import { mines } from "@/data/mines";
 import { useAppSelector } from "@/store/hooks";
 
 export default function MineStorageDashboard() {
-  const { mineData } = useAppSelector((state) => state.user);
+  const { mineData } = useAppSelector((state) => state.game);
 
   const getMineName = (id: number) =>
     mines.find((mine) => mine.id === String(id))?.name;
