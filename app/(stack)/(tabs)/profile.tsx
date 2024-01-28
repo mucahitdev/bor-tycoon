@@ -1,24 +1,25 @@
 import AsyncStorage from "@react-native-async-storage/async-storage";
-import { Button, StyleSheet } from "react-native";
+import { Button, StyleSheet, View, Text } from "react-native";
 
-import EditScreenInfo from "@/components/EditScreenInfo";
-import { Text, View } from "@/components/Themed";
+import { useAppDispatch, useAppSelector } from "@/store/hooks";
+import { addExperiencePoints } from "@/store/userReducer";
 
 export default function TabTwoScreen() {
+  const dispatch = useAppDispatch();
   const clearData = async () => {
-    // asyncStorage.clear();
     AsyncStorage.clear();
+  };
+  const { level, experiencePoints } = useAppSelector((state) => state.user);
+
+  const addXp = () => {
+    dispatch(addExperiencePoints(10000));
   };
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>Tab Two</Text>
-      <View
-        style={styles.separator}
-        lightColor="#eee"
-        darkColor="rgba(255,255,255,0.1)"
-      />
       <Button title="Clear all data" onPress={clearData} />
-      <EditScreenInfo path="app/(tabs)/two.tsx" />
+      <Text>User Level: {level}</Text>
+      <Text>Experience Points: {experiencePoints}</Text>
+      <Button title="Add 100 XP" onPress={addXp} />
     </View>
   );
 }
