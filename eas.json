@@ -9,6 +9,7 @@
       "channel": "development"
     },
     "main": {
+      "developmentClient": true,
       "distribution": "internal",
       "channel": "main"
     },
