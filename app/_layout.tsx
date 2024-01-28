@@ -8,7 +8,7 @@ import { Provider } from "react-redux";
 import { PersistGate } from "redux-persist/integration/react";
 
 import { AppEngineProvider } from "@/components/providers/appEngine";
-import _Fonts from "@/constants/Fonts";
+import _Fonts from "@/constants/fonts";
 import { store, persistor } from "@/store";
 
 export {
