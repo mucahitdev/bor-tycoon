@@ -15,10 +15,10 @@ const Quicksand = {
 };
 
 const OtherFonts = {
-  // SpaceMono: require("../../assets/fonts/SpaceMono-Regular.ttf"),
-  // SpaceMonoItalic: require("../../assets/fonts/SpaceMono-Italic.ttf"),
-  // SpaceMonoBold: require("../../assets/fonts/SpaceMono-Bold.ttf"),
-  // SpaceMonoBoldItalic: require("../../assets/fonts/SpaceMono-BoldItalic.ttf"),
+  SpaceMono: require("../../assets/fonts/SpaceMono-Regular.ttf"),
+  SpaceMonoItalic: require("../../assets/fonts/SpaceMono-Italic.ttf"),
+  SpaceMonoBold: require("../../assets/fonts/SpaceMono-Bold.ttf"),
+  SpaceMonoBoldItalic: require("../../assets/fonts/SpaceMono-BoldItalic.ttf"),
 };
 
 const Fonts = {
