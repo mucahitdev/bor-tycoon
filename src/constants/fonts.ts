@@ -7,11 +7,11 @@ import {
 } from "@expo-google-fonts/quicksand";
 
 const Quicksand = {
-  Quicksand_300Light,
-  Quicksand_400Regular,
-  Quicksand_500Medium,
-  Quicksand_600SemiBold,
-  Quicksand_700Bold,
+  Q_3: Quicksand_300Light,
+  Q_4: Quicksand_400Regular,
+  Q_5: Quicksand_500Medium,
+  Q_6: Quicksand_600SemiBold,
+  Q_7: Quicksand_700Bold,
 };
 
 const OtherFonts = {

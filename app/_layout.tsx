@@ -44,7 +44,7 @@ export default function RootLayout() {
 
   customizeText({
     style: {
-      fontFamily: "Quicksand_500Medium",
+      fontFamily: "Q_4",
     },
   });
 

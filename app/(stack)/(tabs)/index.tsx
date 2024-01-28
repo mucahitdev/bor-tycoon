@@ -1,8 +1,7 @@
 import { Text, View, StyleSheet } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 
-import ProgressBar from "@/components/shared/progressBar";
-import Colors from "@/constants/Colors";
+import MineStorageDashboard from "@/components/core/mineStorageDashboard";
 import { useAppSelector } from "@/store/hooks";
 
 export default function HomeScreen() {
@@ -14,14 +13,7 @@ export default function HomeScreen() {
           {companyName} Ltd Şti
         </Text>
       </View>
-      <View style={styles.progressContainer}>
-        <Text>Maden Depo</Text>
-        <ProgressBar value={45} />
-      </View>
-      <View style={styles.progressContainer}>
-        <Text>Ürün Depo</Text>
-        <ProgressBar value={23} />
-      </View>
+      <MineStorageDashboard />
     </SafeAreaView>
   );
 }
@@ -48,11 +40,5 @@ const styles = StyleSheet.create({
   title: {
     fontSize: 20,
     fontWeight: "bold",
-  },
-  progressContainer: {
-    backgroundColor: Colors.orange,
-    padding: 8,
-    gap: 8,
-    borderRadius: 10,
   },
 });
