@@ -2,10 +2,10 @@ import { Text, View, StyleSheet } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 
 import MineStorageDashboard from "@/components/core/mineStorageDashboard";
-import { useAppSelector } from "@/store/hooks";
+import useAppStore from "@/store";
 
 export default function HomeScreen() {
-  const { companyName } = useAppSelector((state) => state.settings);
+  const companyName = useAppStore((state) => state.companyName);
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.companyHeader}>

@@ -1,35 +1,24 @@
 import AsyncStorage from "@react-native-async-storage/async-storage";
-import { configureStore, combineReducers } from "@reduxjs/toolkit";
-import { persistStore, persistReducer } from "redux-persist";
+import { create } from "zustand";
+import { persist, createJSONStorage } from "zustand/middleware";
 
-import gameReducer from "./gameReducer";
-import settingsReducer from "./settingsReducer";
-import userReducer from "./userReducer";
+import { createGameSlice, type GameSlice } from "./gameSlice";
+import { createSettingsSlice, type SettingsSlice } from "./settingsSlice";
+import { createUserSlice, type UserSlice } from "./userSlice";
 
-const persistConfig = {
-  key: "root",
-  storage: AsyncStorage,
-};
-
-const rootReducer = combineReducers({
-  settings: settingsReducer,
-  game: gameReducer,
-  user: userReducer,
-});
-
-const persistedReducer = persistReducer(persistConfig, rootReducer);
-
-export const store = configureStore({
-  reducer: persistedReducer,
-  middleware: (getDefaultMiddleware) =>
-    getDefaultMiddleware({
-      serializableCheck: false,
+const useAppStore = create<SettingsSlice & UserSlice & GameSlice>()(
+  persist(
+    (...a) => ({
+      ...createSettingsSlice(...a),
+      ...createUserSlice(...a),
+      ...createGameSlice(...a),
     }),
-});
+    {
+      name: "bor-tycoon",
+      version: 1,
+      storage: createJSONStorage(() => AsyncStorage),
+    },
+  ),
+);
 
-export const persistor = persistStore(store);
-
-// Infer the `RootState` and `AppDispatch` types from the store itself
-export type RootState = ReturnType<typeof store.getState>;
-// Inferred type: {posts: PostsState, comments: CommentsState, users: UsersState}
-export type AppDispatch = typeof store.dispatch;
+export default useAppStore;

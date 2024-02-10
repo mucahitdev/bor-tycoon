@@ -4,7 +4,7 @@ import React from "react";
 
 // import { useClientOnlyValue } from "@/components/useClientOnlyValue";
 import Colors from "@/constants/Colors";
-import { useAppSelector } from "@/store/hooks";
+import useAppStore from "@/store";
 
 function TabBarIcon(props: {
   name: React.ComponentProps<typeof FontAwesome>["name"];
@@ -14,7 +14,7 @@ function TabBarIcon(props: {
 }
 
 export default function TabLayout() {
-  const { companyName } = useAppSelector((state) => state.settings);
+  const companyName = useAppStore((state) => state.companyName);
   const isLoggedIn = companyName && companyName?.length > 0;
 
   // const headerShown = useClientOnlyValue(false, true);

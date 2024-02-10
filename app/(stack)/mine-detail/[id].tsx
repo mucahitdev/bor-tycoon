@@ -3,13 +3,13 @@ import React from "react";
 import { Text, View, StyleSheet } from "react-native";
 
 import { mines } from "@/data/mines";
-import { useAppSelector } from "@/store/hooks";
+import useAppStore from "@/store";
 
 const getMineData = (id: string) => mines.find((mine) => mine.id === id);
 
 export default function MineDetail() {
   const { id } = useLocalSearchParams<{ id: string }>();
-  const { mineData } = useAppSelector((state) => state.game);
+  const mineData = useAppStore((state) => state.mineData);
 
   const data = getMineData(id);
   if (!data) {

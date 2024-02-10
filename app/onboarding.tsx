@@ -3,15 +3,14 @@ import React, { useState } from "react";
 import { Text, StyleSheet, TextInput, Button } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 
-import { useAppDispatch } from "@/store/hooks";
-import { setCompanyName } from "@/store/settingsReducer";
+import useAppStore from "@/store";
 
 export default function Onboarding() {
-  const dispatch = useAppDispatch();
+  const setCompanyName = useAppStore((state) => state.setCompanyName);
   const [companyName, setCompanyNam] = useState("");
   const navigateHome = () => {
-    dispatch(setCompanyName(companyName));
-    router.push("/(tabs)");
+    setCompanyName(companyName);
+    router.push("/(stack)/(tabs)");
   };
   return (
     <SafeAreaView style={styles.container}>

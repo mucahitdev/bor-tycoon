@@ -1,8 +1,6 @@
 import React, { useCallback, useEffect, useState } from "react";
-import { useDispatch } from "react-redux";
 
-import { updateMineDataRawCount } from "@/store/gameReducer";
-import { useAppSelector } from "@/store/hooks";
+import useAppStore from "@/store";
 
 export const AppEngineContext = React.createContext({
   timer: 0,
@@ -16,8 +14,8 @@ export const AppEngineProvider = ({
   children: React.ReactNode;
 }) => {
   const [timer, setTimer] = useState(0);
-  const dispatch = useDispatch();
-  const { mineData } = useAppSelector((state) => state.game);
+  const mineData = useAppStore((state) => state.mineData);
+  const updateRawCount = useAppStore((state) => state.updateMineDataRawCount);
 
   const runEngine = useCallback(() => {
     for (const mineId in mineData) {
@@ -28,14 +26,11 @@ export const AppEngineProvider = ({
           const space =
             rawCount + level > capacity ? capacity - rawCount : level;
 
-          dispatch(
-            // eslint-disable-next-line prettier/prettier
-            updateMineDataRawCount({ mineId: idNumber, quantity: space })
-          );
+          updateRawCount(idNumber, space);
         }
       }
     }
-  }, [dispatch, mineData]);
+  }, [mineData]);
 
   useEffect(() => {
     const interval = setInterval(() => {

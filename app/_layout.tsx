@@ -2,14 +2,10 @@ import { useFonts } from "expo-font";
 import { Slot } from "expo-router";
 import * as SplashScreen from "expo-splash-screen";
 import { useEffect } from "react";
-import { Text } from "react-native";
 import { customizeText } from "react-native-reset-css";
-import { Provider } from "react-redux";
-import { PersistGate } from "redux-persist/integration/react";
 
 import { AppEngineProvider } from "@/components/providers/appEngine";
 import Fonts from "@/constants/Font";
-import { store, persistor } from "@/store";
 
 export {
   // Catch any errors thrown by the Layout component.
@@ -53,12 +49,8 @@ export default function RootLayout() {
 
 function RootLayoutNav() {
   return (
-    <Provider store={store}>
-      <PersistGate loading={<Text>Loading...</Text>} persistor={persistor}>
-        <AppEngineProvider>
-          <Slot />
-        </AppEngineProvider>
-      </PersistGate>
-    </Provider>
+    <AppEngineProvider>
+      <Slot />
+    </AppEngineProvider>
   );
 }

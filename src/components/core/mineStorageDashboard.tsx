@@ -4,10 +4,10 @@ import { Text, View, StyleSheet } from "react-native";
 import ProgressBar from "@/components/shared/progressBar";
 import Colors from "@/constants/Colors";
 import { mines } from "@/data/mines";
-import { useAppSelector } from "@/store/hooks";
+import useAppStore from "@/store";
 
 export default function MineStorageDashboard() {
-  const { mineData } = useAppSelector((state) => state.game);
+  const mineData = useAppStore((state) => state.mineData);
 
   const getMineName = (id: number) =>
     mines.find((mine) => mine.id === String(id))?.name;
